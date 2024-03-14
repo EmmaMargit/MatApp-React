@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './stylesheet/App.css'
 import './stylesheet/inputStyle.css'
-import SearchInput from './componets/SearchInput'
+import SearchInput from './componets/InputField'
 import ShowDetail from './componets/ShowDetail'
 
 function App() {
