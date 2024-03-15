@@ -1,6 +1,8 @@
 .header {
     background-color: black;
 }
-h1 {
+.h1_title {
     color: white;
+    text-align: center;
+    border: 2px solid white;
 }

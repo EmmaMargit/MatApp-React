@@ -4,17 +4,20 @@ import viteLogo from '/vite.svg'
 import './stylesheet/App.css';
 import './stylesheet/InputField.css';
 import './stylesheet/Header.module.css';
-import Header from './componets/boilerplats/Header.jsx'
+import Header from './componets/boilerplats/Header'
 import SearchInput from './componets/InputField'
 import MainContent from './componets/boilerplats/MainContent'
 import ShowDetail from './componets/ShowDetail'
 import Footer from './componets/boilerplats/Footer'
+import InputField from './componets/InputField';
 
 function App() {
 
   return (
     <div>
      <Header />
+     {/* Input kommer flyttas till headern */}
+     <InputField />
     </div>
   )
 }
