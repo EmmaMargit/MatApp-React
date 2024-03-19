@@ -1,0 +1,25 @@
+#searchInput {
+    width: 200px; /* Ange önskad bredd */
+    padding: 10px; /* Ange önskat inre mellanrum */
+    border: 1px solid #ccc; /* Ange ramstil och färg */
+    border-radius: 5px; /* Ange rundning på hörnen */
+    font-size: 16px; /* Ange textstorlek */
+    outline: none; /* Ta bort fokusramsen */
+}
+  
+#searchInput:focus {
+    border-color: black; /* Ändra ramfärgen när input-fältet är i fokus */
+}
+  
+#search-btn {
+    background-color: rgba(0, 0, 0, 0.734); 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 32px;
+    margin: 0 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
