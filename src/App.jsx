@@ -18,6 +18,7 @@ function App() {
      <Header />
      {/* Input kommer flyttas till headern */}
      <InputField />
+     <MainContent />
      <Footer />
     </div>
   )
