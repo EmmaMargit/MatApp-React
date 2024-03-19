@@ -1,0 +1,12 @@
+.footer {
+    background-color: black;
+    border-radius: 5px; 
+    /* Denna kan man ha i en delad 
+    med .h1_title så upprepar man inte koden */
+}
+.h1_footer {
+    color: white;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 5px;
+}

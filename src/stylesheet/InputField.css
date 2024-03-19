@@ -1,19 +1,28 @@
+.form_Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #searchInput {
-    width: 200px; /* Ange önskad bredd */
-    padding: 10px; /* Ange önskat inre mellanrum */
-    border: 1px solid #ccc; /* Ange ramstil och färg */
-    border-radius: 5px; /* Ange rundning på hörnen */
-    font-size: 16px; /* Ange textstorlek */
-    outline: none; /* Ta bort fokusramsen */
+    width: 200px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    /* Ta bort fokusramsen */
+    outline: none; 
+    margin-left: auto;
 }
   
+/* Ändra ramfärgen när input-fältet är i fokus */
 #searchInput:focus {
-    border-color: black; /* Ändra ramfärgen när input-fältet är i fokus */
+    border-color: black; 
 }
   
 #search-btn {
-    background-color: rgba(0, 0, 0, 0.734); 
-    border: none;
+    background-color: black; 
+    border: 1px solid white;
     border-radius: 5px;
     color: white;
     padding: 10px 32px;

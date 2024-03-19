@@ -9,7 +9,7 @@ function InputField ({}){
 
     return (
         <div>
-            <form>
+            <form className="form_Container">
                 {/* onChange är en attribut som utför en funktion när något händer med inputen */}
                 {/* Vi tar emot en händelse(event) och sätter dess värde till variabeln food. */}
                 <input 
