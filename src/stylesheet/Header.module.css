@@ -1,8 +1,6 @@
 .header {
     background-color: black;
     border-radius: 5px; 
-    /* Denna kan man ha i en delad 
-    med .h1_title så upprepar man inte koden */
     padding: 20px;
     border: 2px solid white;
 }

@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
-
 #searchInput {
     width: 200px; 
     padding: 10px; 
