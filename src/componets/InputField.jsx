@@ -1,7 +1,7 @@
 // Koden för Input components som kommer kopplas till headern 
 import { useState, useRef } from 'react';
 
-function InputField (){
+function InputField ({onSearch}){
     // Vill att 'food' ska vara tom så blir en tom sträng
     const[food, setFood] = useState("");
     const searchInput = useRef()
@@ -10,6 +10,7 @@ function InputField (){
     // searchInput.current.value
     const searchHandler = () => {
         setFood(searchInput.current.value)
+        onSearch(searchTerm);
     }
 
     return (
@@ -17,10 +18,8 @@ function InputField (){
             <input 
             id= "searchInput"
             type="text" 
-            // value={food}
-            // Använd ref-attributet:
-            ref={searchInput}
-            placeholder='Sök efter maträtt' />
+            ref={searchInput} // Använder ref-attributet
+            placeholder='Sök efter maträtter' />
 
             <button id="search-btn" onClick={searchHandler}>Sök</button>
         </div>
