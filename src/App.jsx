@@ -12,7 +12,8 @@ import Footer from './componets/boilerplats/Footer'
 import InputField from './componets/InputField';
 
 function App() {
-
+// Här vill du hämta data från MealDB API via fetch.
+// Du måste skicka datat till child via props.
   return (
     <div>
      <Header />
