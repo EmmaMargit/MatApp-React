@@ -6,10 +6,11 @@ function InputField ({onSearch}){
     const[food, setFood] = useState("");
     const searchInput = useRef()
 
-    // Hur ska nedanstående hämtas/skickas
-    // searchInput.current.value
+    // Tar inga parametrar & har 2 uttryck
+    // använder vi värdet från inputfältet (searchInput.current.value) 
+    // för att få den sökterm som användaren skrivit in.
     const searchHandler = () => {
-        setFood(searchInput.current.value)
+        const searchTerm = searchInput.current.value
         onSearch(searchTerm);
     }
 
