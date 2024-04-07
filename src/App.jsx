@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './stylesheet/App.css';
@@ -47,7 +47,7 @@ function App() {
      <InputField onSearch={handleSearch}/>
      <MainContent />
      {/* Ska lägga in <ShowDetail /> i  <MainContent /> */}
-     <ShowDetail />
+     <ShowDetail recipes={recipes} />
      <Footer />
     </div>
   )
