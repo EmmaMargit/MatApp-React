@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 
 function InputField ({onSearch}){
     // Vill att 'food' ska vara tom så blir en tom sträng
-    const[food, setFood] = useState("");
+    // const[food, setFood] = useState("");
     
     const searchInput = useRef()
 
@@ -12,7 +12,6 @@ function InputField ({onSearch}){
     // för att få den sökterm som användaren skrivit in.
     const searchHandler = () => {
         const searchTerm = searchInput.current.value
-        setFood(searchTerm);
         onSearch(searchTerm);
     }
 

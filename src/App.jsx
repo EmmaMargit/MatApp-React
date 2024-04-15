@@ -7,50 +7,80 @@ import './stylesheet/Header.module.css';
 import './stylesheet/Footer.module.css';
 import Header from './componets/boilerplats/Header'
 import MainContent from './componets/boilerplats/MainContent'
-import ShowDetail from './componets/ShowDetail'
+// import ShowDetail from './componets/ShowDetail'
 import Footer from './componets/boilerplats/Footer'
 import InputField from './componets/InputField';
 
 function App() {
-// Här vill du hämta data från MealDB API via fetch.
-// Du måste skicka datat till child via props.
-  const [recipes, setRecipes] = useState([]); // Skapar en variabel som är satt  tom array
-  const [fetching, setFetching] = useState(true); // Skapar variabel som är satt till true 
-
+  const [recipes, setRecipes] = useState([]);
+  const [fetching, setFetching] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput.current.value}')
-      .then(response => response.json())
+    if (searchTerm.trim() === '') return;
+    
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Något gick fel vid hämtning av data');
+        }
+        return response.json();
+      })
       .then(data => {
-        setRecipes(data.meals);
+        if (!data.meals) {
+          console.log("Inga recept hittades för den här sökningen");
+          setRecipes([]);
+        } else {
+          console.log("Recept hittades:", data.meals);
+          setRecipes(data.meals);
+        }
         setFetching(false);
       })
-      // Är denna rätt??: 
       .catch(error => {
         console.error('Error fetching data:', error);
         setFetching(false);
       });
-    }, []);
+  }, [searchTerm]);
 
-    // Definiera handleSearch-funktionen här
-    const handleSearch = (searchTerm) => {
-    // Implementera logik för sökning här
-      console.log('Söker efter:', searchTerm);
-    };
-  
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
 
   return (
     <div>
-     <Header />
-     {/* Input kommer flyttas till headern */}
-     {/* Skicka med handleSearch-funktionen som en prop till InputField */}
-     <InputField onSearch={handleSearch}/>
-     <MainContent />
-     {/* Ska lägga in <ShowDetail /> i  <MainContent /> */}
-     <ShowDetail recipes={recipes} />
-     <Footer />
+      <Header />
+      <InputField onSearch={handleSearch} />
+       <MainContent>
+       {/* <div className="recipes">
+         { recipes && recipes.length > 0 ? (
+           recipes.map(recipe => (
+             <ShowDetail
+               key={recipe.idMeal}
+               recipe={recipe} 
+             />
+           ))
+         ) : (
+           <p>No Recipes!</p>
+         )}
+       </div> */}
+     </MainContent>
+      <Footer />
     </div>
-  )
+  );
 }
 
 export default App;
+
+
+// return (
+//   <div>
+//     <Header />
+//     <InputField onSearch={handleSearch} />
+//     {fetching ? <p>Loading...</p> : (
+//       <MainContent>
+//         {/* <ShowDetail recipes={recipes} /> */}
+//       </MainContent>
+//     )}
+//     <Footer />
+//   </div>
+// );
