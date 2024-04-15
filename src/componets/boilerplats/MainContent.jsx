@@ -4,6 +4,7 @@ function MainContent ({ children }){
 
     return (
         <div className={styles.mainContent}>
+          {/* För att visa detaljerna om maträtterna: */}
         {children}
       </div>
     );
