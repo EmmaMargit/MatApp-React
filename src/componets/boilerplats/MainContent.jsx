@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from '../../stylesheet/MainContent.module.css';
-function MainContent (){
+function MainContent ({ children }){
 
     return (
         <div className={styles.mainContent}>
-        {/* Här lägger du till innehållet för din MainContent */}
+        {children}
       </div>
     );
 }

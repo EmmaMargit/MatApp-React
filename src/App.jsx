@@ -7,7 +7,7 @@ import './stylesheet/Header.module.css';
 import './stylesheet/Footer.module.css';
 import Header from './componets/boilerplats/Header'
 import MainContent from './componets/boilerplats/MainContent'
-// import ShowDetail from './componets/ShowDetail'
+import ShowDetail from './componets/ShowDetail'
 import Footer from './componets/boilerplats/Footer'
 import InputField from './componets/InputField';
 
@@ -51,7 +51,7 @@ function App() {
       <Header />
       <InputField onSearch={handleSearch} />
        <MainContent>
-       {/* <div className="recipes">
+       <div className="recipes">
          { recipes && recipes.length > 0 ? (
            recipes.map(recipe => (
              <ShowDetail
@@ -62,9 +62,9 @@ function App() {
          ) : (
            <p>No Recipes!</p>
          )}
-       </div> */}
-     </MainContent>
-      <Footer />
+       </div>
+      </MainContent>
+      {/* <Footer /> */}
     </div>
   );
 }
