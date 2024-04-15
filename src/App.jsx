@@ -50,23 +50,20 @@ function App() {
     <div>
       <Header />
       <InputField onSearch={handleSearch} />
-       <MainContent>
-       <div className="recipes">
-         { recipes && recipes.length > 0 ? (
-           recipes.map(recipe => (
-             <ShowDetail
-               key={recipe.idMeal}
-               recipe={recipe} 
-             />
-           ))
-         ) : (
-           <p>No Recipes!</p>
-         )}
-       </div>
+      <MainContent>
+        <div className="recipes">
+          {recipes && recipes.length > 0 && recipes.map(recipe => (
+            <ShowDetail
+              key={recipe.idMeal}
+              recipe={recipe} 
+            />
+          ))}
+        </div>
       </MainContent>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
+  
 }
 
 export default App;
