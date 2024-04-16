@@ -7,10 +7,12 @@ import './stylesheet/Header.module.css';
 import './stylesheet/Footer.module.css';
 import './stylesheet/ShowDetail.module.css';
 import Header from './componets/boilerplats/Header'
+import InputField from './componets/InputField';
 import MainContent from './componets/boilerplats/MainContent'
 import ShowDetail from './componets/ShowDetail'
+import ShowDetailPage from './componets/ShowDetailPage';
 import Footer from './componets/boilerplats/Footer'
-import InputField from './componets/InputField';
+
 
 function App() {
   const [recipes, setRecipes] = useState([]);
