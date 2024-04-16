@@ -22,13 +22,11 @@ const ShowDetail = ({ recipe }) => {
   
     return (
       <div className="recipe-details">
-        <h3>{recipe.strMeal}</h3>
+       
         <img src={recipe.strMealThumb} alt={recipe.strMeal} />
         {recipeDetails && (
           <div>
-            <h4>Detaljerad information:</h4>
-            <p>Kategori: {recipeDetails.strCategory}</p>
-            <p>Område: {recipeDetails.strArea}</p>
+            <h3>{recipe.strMeal}</h3> {/* Maträtt */}
             <h4>Ingredienser:</h4>
             <ul>
               {Object.keys(recipeDetails).map(key => {
