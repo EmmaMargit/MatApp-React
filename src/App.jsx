@@ -5,6 +5,7 @@ import './stylesheet/App.css';
 import './stylesheet/InputField.css';
 import './stylesheet/Header.module.css';
 import './stylesheet/Footer.module.css';
+import './stylesheet/ShowDetail.module.css';
 import Header from './componets/boilerplats/Header'
 import MainContent from './componets/boilerplats/MainContent'
 import ShowDetail from './componets/ShowDetail'
