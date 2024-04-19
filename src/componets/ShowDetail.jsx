@@ -18,7 +18,7 @@ const ShowDetail = ({ recipe }) => {
         }
       };
   
-      fetchRecipeDetails();
+      fetchRecipeDetails(); 
     }, [recipe.idMeal]);
   
     const toggleDetails = () => {

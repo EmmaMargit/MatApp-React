@@ -12,16 +12,18 @@ import MainContent from './componets/boilerplats/MainContent'
 import ShowDetail from './componets/ShowDetail'
 import ShowDetailPage from './componets/ShowDetailPage';
 import Footer from './componets/boilerplats/Footer'
+import { Route, Routes } from 'react-router-dom'
 
 
 function App() {
   const [recipes, setRecipes] = useState([]);
   const [fetching, setFetching] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null); // State för felmeddelandet
 
   useEffect(() => {
     if (searchTerm.trim() === '') return;
-    
+
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
       .then(response => {
         if (!response.ok) {
@@ -31,10 +33,9 @@ function App() {
       })
       .then(data => {
         if (!data.meals) {
-          console.log("Inga recept hittades för den här sökningen");
           setRecipes([]);
+          setErrorMessage('Inga recept hittades för den här sökningen'); // Sätt felmeddelande
         } else {
-          console.log("Recept hittades:", data.meals);
           setRecipes(data.meals);
         }
         setFetching(false);
@@ -42,45 +43,36 @@ function App() {
       .catch(error => {
         console.error('Error fetching data:', error);
         setFetching(false);
+        setErrorMessage('Något gick fel vid hämtning av recept'); // Sätt felmeddelande
       });
   }, [searchTerm]);
 
   const handleSearch = (term) => {
     setSearchTerm(term);
+    setErrorMessage(null); // Återställ felmeddelandet när användaren utför en ny sökning
   };
 
   return (
     <div>
       <Header />
       <InputField onSearch={handleSearch} />
+      {errorMessage && <p>{errorMessage}</p>} {/* Visa felmeddelande om det finns */}
       <MainContent>
-        <div className="recipes">
-          {recipes && recipes.length > 0 && recipes.map(recipe => (
-            <ShowDetail
-              key={recipe.idMeal}
-              recipe={recipe} 
-            />
-          ))}
-        </div>
+        <Routes>
+          <Route path="/" element={<div className="recipes">
+            {recipes && recipes.length > 0 && recipes.map(recipe => (
+              <ShowDetail
+                key={recipe.idMeal}
+                recipe={recipe} 
+              />
+            ))}
+          </div>} />
+          <Route path="/recipe/:id" element={<ShowDetailPage />} />
+        </Routes>
       </MainContent>
       <Footer />
     </div>
   );
-  
 }
 
 export default App;
-
-
-// return (
-//   <div>
-//     <Header />
-//     <InputField onSearch={handleSearch} />
-//     {fetching ? <p>Loading...</p> : (
-//       <MainContent>
-//         {/* <ShowDetail recipes={recipes} /> */}
-//       </MainContent>
-//     )}
-//     <Footer />
-//   </div>
-// );
